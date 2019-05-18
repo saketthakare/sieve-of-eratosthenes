@@ -6,17 +6,17 @@ using namespace std::chrono;
 
 int eratosthenes(int lastNumber)
 {
-    char *isPrime = new char[lastNumber + 1];
+    bool isPrime[lastNumber + 1];
     for (int i = 0; i <= lastNumber; i++)
-        isPrime[i] = 1;
+        isPrime[i] = true;
     for (int i = 2; i * i <= lastNumber; i++)
         if (isPrime[i])
             for (int j = i * i; j <= lastNumber; j += i)
-                isPrime[j] = 0;
+                isPrime[j] = false;
     int found = 0;
     for (int i = 2; i <= lastNumber; i++)
-        found += isPrime[i];
-    delete[] isPrime;
+        if(isPrime[i])
+            found++;
     return found;
 }
 
