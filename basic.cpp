@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
-// #include <chrono>
+#include <chrono>
 
-using namespace std; 
+using namespace std;
+using namespace std::chrono;
 
 void SieveOfEratosthenes(int n) 
 { 
@@ -15,9 +16,9 @@ void SieveOfEratosthenes(int n)
 				prime[i] = false; 
 		} 
 	} 
-	for (int p=2; p<=n; p++) 
-	if (prime[p]) 
-		cout << p << " "; 
+	// for (int p=2; p<=n; p++) 
+	// if (prime[p]) 
+	// 	cout << ""; 
 } 
 
 int main(int argc, char *argv[])
@@ -33,7 +34,12 @@ int main(int argc, char *argv[])
             std::cerr << e.what() << '\n';
         }
     }
+    auto start = high_resolution_clock::now(); 
 	SieveOfEratosthenes(n);
+    auto stop = high_resolution_clock::now();
+    auto duration = duration_cast<microseconds>(stop - start);
+    cout << n << " prime numbers in\n"
+         << duration.count() << " microseconds" << endl;
     return 0; 
 }
 
