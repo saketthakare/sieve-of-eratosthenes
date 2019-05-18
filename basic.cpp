@@ -38,8 +38,10 @@ int main(int argc, char *argv[])
 	SieveOfEratosthenes(n);
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
-    cout << n << " prime numbers in\n"
-         << duration.count() << " microseconds" << endl;
+    // cout << n << " prime numbers in\n";
+    // cout << duration.count() << " microseconds" << endl;
+    // cerr << duration.count() << endl;
+    cout << duration.count();
     return 0; 
 }
 
