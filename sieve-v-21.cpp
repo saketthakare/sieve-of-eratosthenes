@@ -18,7 +18,7 @@ int eratosthenes(int lastNumber)
     for (Number i = 0; i <= memorySize; i++)
       isPrime[i] = 1;
 
-  #pragma omp parallel for
+  #pragma omp parallel for schedule(auto)
     for (Number i = 3; i <= lastNumberSqrt; i += 2)
       if (isPrime[i/2])
         for (Number j = i*i; j <= lastNumber; j += 2*i)
