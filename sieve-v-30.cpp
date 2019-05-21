@@ -17,16 +17,6 @@ int eratosthenesOddSingleBlock(const int from, const int to)
     isPrime[i] = 1;
     for (int i = 3; i*i <= to; i+=2)
     {
-    if (i >= 3*3 && i % 3 == 0)
-        continue;
-    if (i >= 5*5 && i % 5 == 0)
-        continue;
-    if (i >= 7*7 && i % 7 == 0)
-        continue;
-    if (i >= 11*11 && i % 11 == 0)
-        continue;
-    if (i >= 13*13 && i % 13 == 0)
-        continue;
     int minJ = ((from+i-1)/i)*i;
     if (minJ < i*i)
         minJ = i*i;
